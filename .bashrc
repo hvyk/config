@@ -53,9 +53,8 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
-
-if [ -f ~/.config/.bash_prompt ]; then
-    . .config/.bash_prompt
+if [ -f ~/config/.bash_prompt ]; then
+    . ~/config/.bash_prompt
 fi
 
 
@@ -77,8 +76,6 @@ xterm*|rxvt*)
     ;;
 esac
 
-export PS1='>>>'
-
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
@@ -97,8 +94,8 @@ fi
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 # Alias definitions in ~/.bash_aliases
-if [ -f ~/usr_config/.bash_aliases ]; then
-    . ~/usr_config/.bash_aliases
+if [ -f ~/config/.bash_aliases ]; then
+    . ~/config/.bash_aliases
 fi
 
 
@@ -126,7 +123,6 @@ export LIFT_HOME="$HOME/work/lift"
 # Set up the virtual environment
 export WORKON_HOME=$HOME/.virtualenvs
 source /usr/local/bin/virtualenvwrapper.sh
-workon SCB
 
 
 # nvm, npm, and node stuff
