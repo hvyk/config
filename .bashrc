@@ -129,4 +129,17 @@ source /usr/local/bin/virtualenvwrapper.sh
 workon SCB
 
 
+# nvm, npm, and node stuff
+export PATH=~/npm-global/bin:$PATH
+export NODE_PATH=$NODE_PATH:/home/sean/npm-global/lib/node_modules
 
+export NVM_DIR="/home/sean/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+# Virtualbox sucks - don't uncomment this, just use it when neccessary
+#sudo mount -t vboxsf -o uid=$UID,gid=$(id -g) VMShared ~/host
+
+# display your fortune
+if [ -x /usr/games/cowsay -a -x /usr/games/fortune ]; then
+    fortune | cowsay
+fi
