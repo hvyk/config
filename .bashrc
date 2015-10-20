@@ -111,6 +111,7 @@ if ! shopt -oq posix; then
 fi
 
 
+
 # Include QNX 6.6.0 environment variables.
 if [ -f ~/qnx660/qnx660-env.sh ]; then
     . ~/qnx660/qnx660-env.sh
@@ -125,4 +126,4 @@ export WORKON_HOME=$HOME/.virtualenvs
 source /usr/local/bin/virtualenvwrapper.sh
 
 
-
+workon SCB
