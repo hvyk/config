@@ -111,6 +111,7 @@ if ! shopt -oq posix; then
 fi
 
 
+
 # Include QNX 6.6.0 environment variables.
 if [ -f ~/qnx660/qnx660-env.sh ]; then
     . ~/qnx660/qnx660-env.sh
@@ -118,12 +119,12 @@ fi
 
 export PATH=$PATH:/usr/java/jre1.8.0_51/bin:~/bin
 export CPPUTEST_HOME="/opt/cpputest"
-export LIFT_HOME="$HOME/work/lift"
+#export LIFT_HOME="$HOME/work/lift"
+export LIFT_HOME="~/work/lift"
 
 # Set up the virtual environment
 export WORKON_HOME=$HOME/.virtualenvs
 source /usr/local/bin/virtualenvwrapper.sh
-
 
 # nvm, npm, and node stuff
 export PATH=~/npm-global/bin:$PATH
@@ -139,3 +140,17 @@ export NVM_DIR="/home/sean/.nvm"
 if [ -x /usr/games/cowsay -a -x /usr/games/fortune ]; then
     fortune | cowsay
 fi
+
+# Function to wrap make to provide colourized output
+make()
+{
+    pathpat="(/[^/]*)+:[0-9]+"
+    ccred=$(echo -e "\033[0;31m")
+    ccyellow=$(echo -e "\033[0;33m")
+    ccend=$(echo -e "\033[0m")
+    /usr/bin/make "$@" 2>&1 | sed -E -e "/[Ee]rror[: ]/ s%$pathpat%$ccred&$ccend%g" -e "/[Ww]arning[: ]/s%$pathpat%$ccyellow&$ccend%g"
+    return ${PIPESTATUS[0]}
+}
+
+workon SCB
+

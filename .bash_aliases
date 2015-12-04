@@ -15,3 +15,4 @@ alias rmf='rm -rf'
 alias open='xdg-open . &'
 alias utest='scons --site-dir=../site_scons --platform=posix utest'
 
+alias kaushal='pantheon-files'
