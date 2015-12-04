@@ -119,11 +119,25 @@ fi
 
 export PATH=$PATH:/usr/java/jre1.8.0_51/bin:~/bin
 export CPPUTEST_HOME="/opt/cpputest"
-export LIFT_HOME="$HOME/work/lift"
+#export LIFT_HOME="$HOME/work/lift"
+export LIFT_HOME="~/work/lift"
 
 # Set up the virtual environment
 export WORKON_HOME=$HOME/.virtualenvs
 source /usr/local/bin/virtualenvwrapper.sh
 
+# Function to wrap make to provide colourized output
+make()
+{
+    pathpat="(/[^/]*)+:[0-9]+"
+    ccred=$(echo -e "\033[0;31m")
+    ccyellow=$(echo -e "\033[0;33m")
+    ccend=$(echo -e "\033[0m")
+    /usr/bin/make "$@" 2>&1 | sed -E -e "/[Ee]rror[: ]/ s%$pathpat%$ccred&$ccend%g" -e "/[Ww]arning[: ]/s%$pathpat%$ccyellow&$ccend%g"
+    return ${PIPESTATUS[0]}
+}
 
 workon SCB
+
+# Just leaving this here because virtualbox effing sucks
+#sudo mount -t vboxsf -o uid=$UID,gid=$(id -g) VMShared ~/host

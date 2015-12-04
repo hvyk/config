@@ -18,6 +18,8 @@ cnoremap sudow w !sudo tee % >/dev/null<CR>
 
 "nmap H :100j<CR>
 
+" Open Tagbar
+nnoremap <silent> <Leader>t :TagbarToggle<CR>
 
 " NERDTree configuration
 autocmd WinEnter * call s:CloseIfOnlyNerdTreeLeft()
@@ -37,6 +39,9 @@ autocmd VimEnter * wincmd p
 let NERDTreeShowBookmarks=1
 
 autocmd FileType make setlocal noexpandtab
+
+set hlsearch
+:nnoremap <CR> :nohlsearch<CR><CR>
 
 " set UTF-8 encoding
 set enc=utf-8
@@ -61,3 +66,9 @@ colorscheme busybee
 " turn line numbers on
 set number
 set noswapfile
+
+
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
