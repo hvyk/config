@@ -113,22 +113,25 @@ fi
 
 
 # Include QNX 6.6.0 environment variables.
+#if [ -f ~/qnx/qnx660/qnx660-env.sh ]; then
 if [ -f ~/qnx660/qnx660-env.sh ]; then
     . ~/qnx660/qnx660-env.sh
 fi
 
 export PATH=$PATH:/usr/java/jre1.8.0_51/bin:~/bin
 export CPPUTEST_HOME="/opt/cpputest"
-#export LIFT_HOME="$HOME/work/lift"
-export LIFT_HOME="~/work/lift"
+export LIFT_HOME="$HOME/work/lift"
 
 # Set up the virtual environment
 export WORKON_HOME=$HOME/.virtualenvs
 source /usr/local/bin/virtualenvwrapper.sh
+#workon SCB
 
 # nvm, npm, and node stuff
 export PATH=~/npm-global/bin:$PATH
 export NODE_PATH=$NODE_PATH:/home/sean/npm-global/lib/node_modules
+
+#export PATH=$HOME/gcc-linaro-4.9-2015.05-x86_64_arm-linux-gnueabihf/bin:$PATH
 
 export NVM_DIR="/home/sean/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -152,5 +155,4 @@ make()
     return ${PIPESTATUS[0]}
 }
 
-workon SCB
-
+#sudo mount -t vboxsf -o rw,uid=1000,gid=1000 VMshared ~/host
