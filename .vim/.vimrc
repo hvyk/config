@@ -110,6 +110,7 @@ endfunction
 autocmd VimEnter * NERDTree
 autocmd VimEnter * wincmd p
 let NERDTreeShowBookmarks=1
+let NERDTreeShowHidden=1
 
 
 "   SECTION 6b) Tagbar

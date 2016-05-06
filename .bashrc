@@ -140,9 +140,9 @@ export NVM_DIR="/home/sean/.nvm"
 #sudo mount -t vboxsf -o uid=$UID,gid=$(id -g) VMShared ~/host
 
 # display your fortune
-if [ -x /usr/games/cowsay -a -x /usr/games/fortune ]; then
-    fortune | cowsay
-fi
+#if [ -x /usr/games/cowsay -a -x /usr/games/fortune ]; then
+    #fortune | cowsay
+#fi
 
 # Function to wrap make to provide colourized output
 make()
@@ -154,5 +154,3 @@ make()
     /usr/bin/make "$@" 2>&1 | sed -E -e "/[Ee]rror[: ]/ s%$pathpat%$ccred&$ccend%g" -e "/[Ww]arning[: ]/s%$pathpat%$ccyellow&$ccend%g"
     return ${PIPESTATUS[0]}
 }
-
-#sudo mount -t vboxsf -o rw,uid=1000,gid=1000 VMshared ~/host
