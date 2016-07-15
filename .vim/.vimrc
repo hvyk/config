@@ -85,6 +85,11 @@ nmap <leader>n :tn<CR>
 " SECTION 6) Plugins
 " ===============================
 
+"   Documentation
+"   =============
+
+:helptags ~/.vim/doc
+
 
 "   SECTION 6a) NerdTree
 "   ====================
@@ -130,5 +135,3 @@ au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
-
-
