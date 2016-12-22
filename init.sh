@@ -1,11 +1,13 @@
-if [ "$1" == "install" ]; then
+if [ "$1" = "install" ]; then
+    echo INSTALL
     apt-get upgrade
     apt-get update
     apt-get install git vim python-pip
     pip install --upgrade pip
     pip install virtualenv virtualenvwrapper
-elif [ "$1" == "setup" ]; then
-    git clone https://github.com/hvyk/config.git
+elif [ "$1" = "setup" ]; then
+    echo SETUP
+    # git clone https://github.com/hvyk/config.git
     if [ -f ~/.bashrc ]
     then
         rm ~/.bashrc
